@@ -1,9 +1,18 @@
 euclid
 2D and 3D maths module for Python
 
-Homepage: http://code.google.com/p/pyeuclid/
-Contact:  Alex Holkner
-          Alex.Holkner@mail.google.com
+Homepage: https://bitbucket.org/mortenlj/euclid
+Contact:  Morten Lied Johansen
+          mortenjo@ifi.uio.no
+
+Acknowledgement
+---------------
+
+This module is mostly the work of Alex Holkner
+(alex@partiallydisassembled.net). I have forked the module, in order to
+incorporate patches and bugfixes from the issue tracker, and update the
+documentation. The original project can be found at
+http://code.google.com/p/pyeuclid/
 
 Usage
 -----
