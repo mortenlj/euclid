@@ -1,4 +1,6 @@
 docs/_build
+build
+dist
 syntax: glob
 *.iml
 *.ipr
