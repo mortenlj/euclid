@@ -218,6 +218,7 @@ The following methods do *not* alter the original vector or their arguments:
 
 ``rotate_around(axes, theta)``
     For 3D vectors, return the vector rotated around axis by the angle theta.
+    Example::
 
         >>> v = Vector3(1., 2., 3.)
         >>> axes = Vector3(1.,1.,0)
