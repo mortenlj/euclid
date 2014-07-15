@@ -1,0 +1,6 @@
+docs/_build
+syntax: glob
+*.iml
+*.ipr
+*.iws
+*.pyc
