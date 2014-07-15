@@ -1,11 +1,11 @@
-:author: Alex Holkner
-:address: alex@partiallydisassembled.net
+:author: Alex Holkner, Morten Lied Johansen
+:address: alex@partiallydisassembled.net, mortenjo@ifi.uio.no
 
 :revision: $Revision: 36 $
 :date: $Date: 2011-04-04 18:56:00 +0200 (Mon, 04 Apr 2011) $
 
-:copyright: Copyright (c) 2006 Alex Holkner
-    Alex.Holkner@gmail.com
+:copyright: Copyright (c) 2014 Alex Holkner, Morten Lied Johansen
+    Alex.Holkner@gmail.com, mortenjo@ifi.uio.no
     .
     This library is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as published by

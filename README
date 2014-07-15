@@ -17,15 +17,14 @@ http://code.google.com/p/pyeuclid/
 Usage
 -----
 
-See "euclid.txt" for detailed documentation.  The file is readable as
+See "docs/index.rst" for detailed documentation.  The file is readable as
 plain text, and can also be compiled to a set of HTML pages with the
-included Makefile.  The documentation contains some tests which
-can also be run through the Makefile.
+included Makefile.
 
 License
 -------
 
-Copyright (c) 2006 Alex Holkner
+Copyright (c) 2014 Alex Holkner, Morten Lied Johansen
 
 This library is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published by the
