@@ -34,7 +34,7 @@ Introduction
 
 This document describes the ``euclid`` module, which provides vector,
 matrix and quaternion classes for 2D and 3D graphics applications.
-Everything is provided in the ``euclid`` namespace::
+Everything is provided in the ``euclid`` namespace:
 
     >>> from euclid import *
     >>>
@@ -52,7 +52,7 @@ Vector classes
 Two mutable vector types are available: **Vector2** and **Vector3**,
 for 2D and 3D vectors, respectively.  Vectors are assumed to hold
 floats, but most operations will also work if you use ints or longs
-instead.  Construct a vector in the obvious way::
+instead.  Construct a vector in the obvious way:
 
     >>> Vector2(1.5, 2.0)
     Vector2(1.50, 2.00)
@@ -65,7 +65,7 @@ Element access
 
 Components may be accessed as attributes (examples that follow use
 **Vector3**, but all results are similar for **Vector2**, using only the *x*
-and *y* components)::
+and *y* components):
 
     >>> v = Vector3(1, 2, 3)
     >>> v.x
@@ -75,7 +75,7 @@ and *y* components)::
     >>> v.z
     3
 
-Vectors support the list interface via slicing::
+Vectors support the list interface via slicing:
 
     >>> v = Vector3(1, 2, 3)
     >>> len(v)
@@ -85,7 +85,7 @@ Vectors support the list interface via slicing::
     >>> v[:]
     (1, 2, 3)
 
-You can also "swizzle" the components (*a la* GLSL or Cg)::
+You can also "swizzle" the components (*a la* GLSL or Cg):
 
     >>> v = Vector3(1, 2, 3)
     >>> v.xyz
@@ -95,7 +95,7 @@ You can also "swizzle" the components (*a la* GLSL or Cg)::
     >>> v.zzzz
     (3, 3, 3, 3)
 
-All of the above accessors are also mutators[1]::
+All of the above accessors are also mutators[1]:
 
     >>> v = Vector3(1, 2, 3)
     >>> v.x = 5
@@ -114,7 +114,7 @@ Operators
 ---------
 
 Addition and subtraction are supported via operator overloading (note 
-that in-place operators perform faster than those that create a new object)::
+that in-place operators perform faster than those that create a new object):
 
     >>> v1 = Vector3(1, 2, 3)
     >>> v2 = Vector3(4, 5, 6)
@@ -124,7 +124,7 @@ that in-place operators perform faster than those that create a new object)::
     >>> v1
     Vector3(-3.00, -3.00, -3.00)
 
-Multiplication and division can be performed with a scalar only::
+Multiplication and division can be performed with a scalar only:
 
     >>> Vector3(1, 2, 3) * 2
     Vector3(2.00, 4.00, 6.00)
@@ -133,14 +133,14 @@ Multiplication and division can be performed with a scalar only::
     >>> v1
     Vector3(0.50, 1.00, 1.50)
 
-The magnitude of a vector can be found with ``abs``::
+The magnitude of a vector can be found with ``abs``:
 
     >>> v = Vector3(1., 2., 3.)
     >>> abs(v)
     3.7416573867739413
 
 A vector can be normalized in-place (note that the in-place method also
-returns ``self``, so you can chain it with further operators)::
+returns ``self``, so you can chain it with further operators):
 
     >>> v = Vector3(1., 2., 3.)
     >>> v.normalize()
@@ -154,7 +154,7 @@ The following methods do *not* alter the original vector or their arguments:
     Returns a copy of the vector.  ``__copy__`` is also implemented.
 
 ``magnitude()``
-    Returns the magnitude of the vector; equivalent to ``abs(v)``.  Example::
+    Returns the magnitude of the vector; equivalent to ``abs(v)``.  Example:
 
         >>> v = Vector3(1., 2., 3.)
         >>> v.magnitude()
@@ -163,7 +163,7 @@ The following methods do *not* alter the original vector or their arguments:
 ``magnitude_squared()``
     Returns the sum of the squares of each component.  Useful for comparing
     the length of two vectors without the expensive square root operation.
-    Example::
+    Example:
 
         >>> v = Vector3(1., 2., 3.)
         >>> v.magnitude_squared()
@@ -172,7 +172,7 @@ The following methods do *not* alter the original vector or their arguments:
 ``normalized()``
     Return a unit length vector in the same direction.  Note that this
     method differs from ``normalize`` in that it does not modify the
-    vector in-place.  Example::
+    vector in-place.  Example:
 
         >>> v = Vector3(1., 2., 3.)
         >>> v.normalized()
@@ -181,7 +181,7 @@ The following methods do *not* alter the original vector or their arguments:
         Vector3(1.00, 2.00, 3.00)
 
 ``dot(other)``
-    Return the scalar "dot" product of two vectors.  Example::
+    Return the scalar "dot" product of two vectors.  Example:
 
         >>> v1 = Vector3(1., 2., 3.)
         >>> v2 = Vector3(4., 5., 6.)
@@ -191,14 +191,14 @@ The following methods do *not* alter the original vector or their arguments:
 ``cross()`` and ``cross(other)``
     Return the cross product of a vector (for **Vector2**), or the cross
     product of two vectors (for **Vector3**).  The return type is a
-    vector.  Example::
+    vector.  Example:
 
         >>> v1 = Vector3(1., 2., 3.)
         >>> v2 = Vector3(4., 5., 6.)
         >>> v1.cross(v2)
         Vector3(-3.00, 6.00, -3.00)
 
-    In two dimensions there can be no argument to ``cross``::
+    In two dimensions there can be no argument to ``cross``:
 
         >>> v1 = Vector2(1., 2.)
         >>> v1.cross()
@@ -207,7 +207,7 @@ The following methods do *not* alter the original vector or their arguments:
 ``reflect(normal)``
     Return the vector reflected about the given normal.  In two dimensions,
     *normal* is the normal to a line, in three dimensions it is the normal
-    to a plane.  The normal must have unit length.  Example::
+    to a plane.  The normal must have unit length.  Example:
 
         >>> v = Vector3(1., 2., 3.)
         >>> v.reflect(Vector3(0, 1, 0))
@@ -218,7 +218,7 @@ The following methods do *not* alter the original vector or their arguments:
 
 ``rotate_around(axes, theta)``
     For 3D vectors, return the vector rotated around axis by the angle theta.
-    Example::
+    Example:
 
         >>> v = Vector3(1., 2., 3.)
         >>> axes = Vector3(1.,1.,0)
@@ -231,7 +231,7 @@ The following methods do *not* alter the original vector or their arguments:
 ``project(other)``
     Return the projection (the component) of the vector on other.
 
-Tests for equality include comparing against other sequences::
+Tests for equality include comparing against other sequences:
 
     >>> v2 = Vector2(1, 2)
     >>> v2 == Vector2(3, 4)
@@ -250,7 +250,7 @@ Tests for equality include comparing against other sequences::
     True
 
 Vectors are not hashable, and hence cannot be put in sets nor used as
-dictionary keys::
+dictionary keys:
 
     >>> {Vector2(): 0}
     Traceback (most recent call last):
@@ -271,7 +271,7 @@ Two matrix classes are supplied, **Matrix3**, a 3x3 matrix for working with 2D
 affine transformations, and **Matrix4**, a 4x4 matrix for working with 3D
 affine transformations.
 
-The default constructor intializes the matrix to the identity::
+The default constructor intializes the matrix to the identity:
 
     >>> Matrix3()
     Matrix3([    1.00     0.00     0.00
@@ -287,13 +287,13 @@ Element access
 --------------
 
 Internally each matrix is stored as a set of attributes named ``a`` to ``p``.
-The layout for Matrix3 is::
+The layout for Matrix3 is:
 
     # a b c 
     # e f g 
     # i j k 
 
-and for Matrix4::
+and for Matrix4:
 
     # a b c d
     # e f g h
@@ -301,7 +301,7 @@ and for Matrix4::
     # m n o p
 
 If you wish to set or retrieve a number of elements at once, you can
-do so with a slice::
+do so with a slice:
 
     >>> m = Matrix4()
     >>> m[:]
@@ -323,7 +323,7 @@ Class constructors
 There are class constructors for the most common types of transform.
 
 ``new_identity``
-    Equivalent to the default constructor.  Example::
+    Equivalent to the default constructor.  Example:
 
         >>> m = Matrix4.new_identity()
         >>> m
@@ -335,7 +335,7 @@ There are class constructors for the most common types of transform.
 ``new_scale(x, y)`` and ``new_scale(x, y, z)``
     The former is defined on **Matrix3**, the latter on **Matrix4**.
     Equivalent to the OpenGL call ``glScalef``.
-    Example::
+    Example:
 
         >>> m = Matrix4.new_scale(2.0, 3.0, 4.0)
         >>> m
@@ -347,7 +347,7 @@ There are class constructors for the most common types of transform.
 ``new_translate(x, y)`` and ``new_translate(x, y, z)``
     The former is defined on **Matrix3**, the latter on **Matrix4**.
     Equivalent to the OpenGL call ``glTranslatef``.
-    Example::
+    Example:
 
         >>> m = Matrix4.new_translate(3.0, 4.0, 5.0)
         >>> m
@@ -360,7 +360,7 @@ There are class constructors for the most common types of transform.
     Create a **Matrix3** for a rotation around the origin.  *angle* is
     specified in radians, anti-clockwise.  This is not implemented in
     **Matrix4** (see below for equivalent methods).
-    Example::
+    Example:
 
         >>> import math
         >>> m = Matrix3.new_rotate(math.pi / 2)
@@ -376,7 +376,7 @@ The following constructors are defined for **Matrix4** only.
 
 ``new_rotatex(angle)``, ``new_rotatey(angle)``, ``new_rotatez(angle)``
     Create a **Matrix4** for a rotation around the X, Y or Z axis, respectively.
-    *angle* is specified in radians.  Example::
+    *angle* is specified in radians.  Example:
 
         >>> m = Matrix4.new_rotatex(math.pi / 2)
         >>> m
@@ -388,7 +388,7 @@ The following constructors are defined for **Matrix4** only.
 ``new_rotate_axis(angle, axis)``
     Create a **Matrix4** for a rotation around the given axis.  *angle*
     is specified in radians, and *axis* must be an instance of **Vector3**.
-    It is not necessary to normalize the axis.  Example::
+    It is not necessary to normalize the axis.  Example:
 
         >>> m = Matrix4.new_rotate_axis(math.pi / 2, Vector3(1.0, 0.0, 0.0))
         >>> m        
@@ -402,7 +402,7 @@ The following constructors are defined for **Matrix4** only.
     around the Y axis, *attitude* around the X axis and *bank* around the Z
     axis.  All rotations are performed simultaneously, so this method avoids
     "gimbal lock" and is the usual method for implemented 3D rotations in a
-    game.  Example::
+    game.  Example:
 
         >>> m = Matrix4.new_rotate_euler(math.pi / 2, math.pi / 2, 0.0)
         >>> m
@@ -417,7 +417,7 @@ The following constructors are defined for **Matrix4** only.
     the view angle in the Y direction, in radians.  *aspect* is the aspect
     ration *width* / *height* of the viewing plane.  *near* and *far* are
     the distance to the near and far clipping planes.  They must be
-    positive and non-zero.  Example::
+    positive and non-zero.  Example:
 
         >>> m = Matrix4.new_perspective(math.pi / 2, 1024.0 / 768, 1.0, 100.0)
         >>> m
@@ -430,7 +430,7 @@ Operators
 ---------
 
 Matrices of the same dimension may be multiplied to give a new matrix.
-For example, to create a transform which translates and scales::
+For example, to create a transform which translates and scales:
 
     >>> m1 = Matrix3.new_translate(5.0, 6.0)
     >>> m2 = Matrix3.new_scale(1.0, 2.0)
@@ -440,14 +440,14 @@ For example, to create a transform which translates and scales::
                  0.00     0.00     1.00])
 
 Note that multiplication is not commutative (the order that you apply
-transforms matters)::
+transforms matters):
 
     >>> m2 * m1
     Matrix3([    1.00     0.00     5.00
                  0.00     2.00    12.00
                  0.00     0.00     1.00])
 
-In-place multiplication is also permitted (and optimised)::
+In-place multiplication is also permitted (and optimised):
 
     >>> m1 *= m2
     >>> m1
@@ -456,14 +456,14 @@ In-place multiplication is also permitted (and optimised)::
                  0.00     0.00     1.00])
 
 Multiplying a matrix by a vector returns a vector, and is used to
-transform a vector::
+transform a vector:
 
     >>> m1 = Matrix3.new_rotate(math.pi / 2)
     >>> m1 * Vector2(1.0, 1.0)
     Vector2(-1.00, 1.00)
 
 Note that translations have no effect on vectors.  They do affect
-points, however::
+points, however:
 
     >>> m1 = Matrix3.new_translate(5.0, 6.0)
     >>> m1 * Vector2(1.0, 2.0)
@@ -485,13 +485,13 @@ A **Matrix4** can be multiplied with a **Vector3** or any of the 3D geometry
 objects (**Point3**, **Line3**, **Sphere**, etc).
 
 For convenience, each of the matrix constructors are also available as
-in-place operators.  For example, instead of writing::
+in-place operators.  For example, instead of writing:
 
     >>> m1 = Matrix3.new_translate(5.0, 6.0)
     >>> m2 = Matrix3.new_scale(1.0, 2.0)
     >>> m1 *= m2
 
-you can apply the scale directly to *m1*::
+you can apply the scale directly to *m1*:
 
     >>> m1 = Matrix3.new_translate(5.0, 6.0)
     >>> m1.scale(1.0, 2.0)
@@ -505,7 +505,7 @@ you can apply the scale directly to *m1*::
 
 Note that these methods operate in-place (they modify the original matrix),
 and they also return themselves as a result.  This allows you to chain
-transforms together directly::
+transforms together directly:
 
     >>> Matrix3().translate(1.0, 2.0).rotate(math.pi / 2).scale(4.0, 4.0)
     Matrix3([    0.00    -4.00     1.00
@@ -530,7 +530,7 @@ transformation.  They are the preferred way to store and manipulate
 rotations in 3D applications, as they do not suffer the same numerical
 degredation that matrices do.
 
-The quaternion constructor initializes to the identity transform::
+The quaternion constructor initializes to the identity transform:
 
     >>> q = Quaternion()
     >>> q
@@ -553,7 +553,7 @@ Rotations can be formed using the constructors:
 ``new_rotate_axis(angle, axis)``
     Equivalent to the Matrix4 constructor of the same name.  *angle* is
     specified in radians, *axis* is an instance of **Vector3**.  It is
-    not necessary to normalize the axis.  Example::
+    not necessary to normalize the axis.  Example:
 
         >>> q = Quaternion.new_rotate_axis(math.pi / 2, Vector3(1, 0, 0))
         >>> q
@@ -562,7 +562,7 @@ Rotations can be formed using the constructors:
 ``new_rotate_euler(heading, attitude, bank)``
     Equivalent to the Matrix4 constructor of the same name.  *heading*
     is a rotation around the Y axis, *attitude* around the X axis and
-    *bank* around the Z axis.  All angles are given in radians.  Example::
+    *bank* around the Z axis.  All angles are given in radians.  Example:
 
         >>> q = Quaternion.new_rotate_euler(math.pi / 2, math.pi / 2, 0)
         >>> q
@@ -571,7 +571,7 @@ Rotations can be formed using the constructors:
 ``new_interpolate(q1, q2, t)``
     Create a quaternion which gives a (SLERP) interpolated rotation
     between *q1* and *q2*.  *q1* and *q2* are instances of **Quaternion**,
-    and *t* is a value between 0.0 and 1.0.  For example::
+    and *t* is a value between 0.0 and 1.0.  For example:
 
         >>> q1 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(1, 0, 0))
         >>> q2 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(0, 1, 0))
@@ -595,7 +595,7 @@ Operators
 ---------
 
 Quaternions may be multiplied to compound rotations.  For example, to
-rotate 90 degrees around the X axis and then 90 degrees around the Y axis::
+rotate 90 degrees around the X axis and then 90 degrees around the Y axis:
 
     >>> q1 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(1, 0, 0))
     >>> q2 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(0, 1, 0))
@@ -603,21 +603,21 @@ rotate 90 degrees around the X axis and then 90 degrees around the Y axis::
     Quaternion(real=0.50, imag=<0.50, 0.50, 0.50>)
 
 Multiplying a quaternion by a vector gives a vector, transformed
-appropriately::
+appropriately:
 
     >>> q = Quaternion.new_rotate_axis(math.pi / 2, Vector3(0, 1, 0))
     >>> q * Vector3(1.0, 0, 0)
     Vector3(0.00, 0.00, -1.00)
 
 Similarly, any 3D object can be multiplied (e.g., **Point3**, **Line3**,
-**Sphere**, etc)::
+**Sphere**, etc):
 
     >>> q * Ray3(Point3(1., 1., 1.), Vector3(1., 1., 1.))
     Ray3(<1.00, 1.00, -1.00> + u<1.00, 1.00, -1.00>)
 
 As with the matrix classes, the constructors are also available as in-place
 operators.  These are named ``identity``, ``rotate_euler`` and
-``rotate_axis``.  For example::
+``rotate_axis``.  For example:
 
     >>> q1 = Quaternion()
     >>> q1.rotate_euler(math.pi / 2, math.pi / 2, 0)
@@ -628,7 +628,7 @@ operators.  These are named ``identity``, ``rotate_euler`` and
 Quaternions are usually unit length, but you may wish to use sized
 quaternions.  In this case, you can find the magnitude using ``abs``,
 ``magnitude`` and ``magnitude_squared``, as with the vector classes.
-Example::
+Example:
 
     >>> q1 = Quaternion()
     >>> abs(q1)
@@ -643,7 +643,7 @@ The following methods do not alter the quaternion:
 
 ``conjugated()``
     Returns a quaternion that is the conjugate of the instance.  For
-    example::
+    example:
         
         >>> q1 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(1, 0, 0))
         >>> q1.conjugated()
@@ -653,7 +653,7 @@ The following methods do not alter the quaternion:
 
 ``get_angle_axis()``
     Returns a tuple (angle, axis), giving the angle to rotate around an
-    axis equivalent to the quaternion.  For example::
+    axis equivalent to the quaternion.  For example:
 
         >>> q1 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(1, 0, 0))
         >>> q1.get_angle_axis()
@@ -661,7 +661,7 @@ The following methods do not alter the quaternion:
 
 ``get_matrix()``
     Returns a **Matrix4** implementing the transformation of the quaternion.
-    For example::
+    For example:
         
         >>> q1 = Quaternion.new_rotate_axis(math.pi / 2, Vector3(1, 0, 0))
         >>> q1.get_matrix()
@@ -678,14 +678,14 @@ The following classes are available for dealing with simple 2D geometry.
 The interface to each shape is similar; in particular, the ``connect``
 and ``distance`` methods are defined identically for each.
 
-For example, to find the closest point on a line to a circle::
+For example, to find the closest point on a line to a circle:
 
     >>> circ = Circle(Point2(3., 2.), 2.)
     >>> line = Line2(Point2(0., 0.), Point2(-1., 1.))
     >>> line.connect(circ).p1
     Point2(0.50, -0.50)
 
-To find the corresponding closest point on the circle to the line::
+To find the corresponding closest point on the circle to the line:
 
     >>> line.connect(circ).p2
     Point2(1.59, 0.59)
@@ -694,14 +694,14 @@ To find the corresponding closest point on the circle to the line::
 Point2
 ------
 
-A point on a 2D plane.  Construct in the obvious way::
+A point on a 2D plane.  Construct in the obvious way:
 
     >>> p = Point2(1.0, 2.0)
     >>> p
     Point2(1.00, 2.00)
 
 **Point2** subclasses **Vector2**, so all of **Vector2** operators and
-methods apply.  In particular, subtracting two points gives a vector::
+methods apply.  In particular, subtracting two points gives a vector:
 
     >>> Point2(2.0, 3.0) - Point2(1.0, 0.0)
     Vector2(1.00, 3.00)
@@ -734,7 +734,7 @@ You may construct a line, ray or line segment using any of:
 * a point and a vector
 * a point, a vector and a length
 
-For example::
+For example:
 
     >>> Line2(Point2(1.0, 1.0), Point2(2.0, 3.0))
     Line2(<1.00, 1.00> + u<1.00, 2.00>)
@@ -772,7 +772,7 @@ The following methods are supported by all three classes:
 Circle
 ------
 
-Circles are constructed with a center **Point2** and a radius::
+Circles are constructed with a center **Point2** and a radius:
 
     >>> c = Circle(Point2(1.0, 1.0), 0.5)
     >>> c
@@ -805,14 +805,14 @@ The following classes are available for dealing with simple 3D geometry.
 The interfaces are very similar to the 2D classes (but note that you
 cannot mix and match 2D and 3D operations).
 
-For example, to find the closest point on a line to a sphere::
+For example, to find the closest point on a line to a sphere:
 
     >>> sphere = Sphere(Point3(1., 2., 3.,), 2.)
     >>> line = Line3(Point3(0., 0., 0.), Point3(-1., -1., 0.))
     >>> line.connect(sphere).p1
     Point3(1.50, 1.50, 0.00)
 
-To find the corresponding closest point on the sphere to the line::
+To find the corresponding closest point on the sphere to the line:
 
     >>> line.connect(sphere).p2
     Point3(1.32, 1.68, 1.05)
@@ -822,14 +822,14 @@ XXX I have not checked if these are correct.
 Point3
 ------
 
-A point on a 3D plane.  Construct in the obvious way::
+A point on a 3D plane.  Construct in the obvious way:
 
     >>> p = Point3(1.0, 2.0, 3.0)
     >>> p
     Point3(1.00, 2.00, 3.00)
 
 **Point3** subclasses **Vector3**, so all of **Vector3** operators and
-methods apply.  In particular, subtracting two points gives a vector::
+methods apply.  In particular, subtracting two points gives a vector:
 
     >>> Point3(1.0, 2.0, 3.0) - Point3(1.0, 0.0, -2.0)
     Vector3(0.00, 2.00, 5.00)
@@ -866,7 +866,7 @@ You may construct a line, ray or line segment using any of:
 * a point and a vector
 * a point, a vector and a length
 
-For example::
+For example:
 
     >>> Line3(Point3(1.0, 1.0, 1.0), Point3(1.0, 2.0, 3.0))
     Line3(<1.00, 1.00, 1.00> + u<0.00, 1.00, 2.00>)
@@ -905,7 +905,7 @@ The following methods are supported by all three classes:
 Sphere
 ------
 
-Spheres are constructed with a center **Point3** and a radius::
+Spheres are constructed with a center **Point3** and a radius:
 
     >>> s = Sphere(Point3(1.0, 1.0, 1.0), 0.5)
     >>> s
