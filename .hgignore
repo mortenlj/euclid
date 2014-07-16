@@ -1,6 +1,7 @@
 docs/_build
 build
 dist
+euclid_ng.egg-info
 syntax: glob
 *.iml
 *.ipr

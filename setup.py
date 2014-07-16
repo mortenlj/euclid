@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-'''
-'''
-
 __docformat__ = 'restructuredtext'
-__version__ = '$Id: setup.py 7 2006-08-14 16:36:11Z Alex.Holkner $'
 
-from distutils.core import setup
+from ez_setup import use_setuptools
+use_setuptools()
+
+from setuptools import setup
 
 setup(name='euclid-ng',
       version='0.1',
