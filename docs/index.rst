@@ -124,6 +124,12 @@ that in-place operators perform faster than those that create a new object):
     >>> v1
     Vector3(-3.00, -3.00, -3.00)
 
+You can also use tuples in place of actual Vectors:
+
+    >>> v = Vector3(1, 1, 1)
+    >>> (1, 1, 1) - v
+    Vector3(0.00, 0.00, 0.00)
+
 Multiplication and division can be performed with a scalar only:
 
     >>> Vector3(1, 2, 3) * 2
