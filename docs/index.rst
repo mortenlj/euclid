@@ -241,6 +241,17 @@ The following methods do *not* alter the original vector or their arguments:
 
 ``angle(other)``
     Return the angle between two vectors.
+
+``clockwise(other)``
+    For 2D vectors, return true if other vector is clockwise to this.
+    Example:
+
+        >>> v = Vector2(1., 1.)
+        >>> other = Vector2(1., 0.)
+        >>> v.clockwise(other)
+        True
+        >>> other.clockwise(v)
+        False
     
 ``project(other)``
     Return the projection (the component) of the vector on other.
