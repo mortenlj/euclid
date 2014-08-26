@@ -284,6 +284,11 @@ class Vector2:
         return self.x * other.x + \
                self.y * other.y
 
+    def determinant(self, other):
+        assert isinstance(other, Vector2)
+        return self.x * other.y - \
+               self.y * other.x
+
     def cross(self):
         return Vector2(self.y, -self.x)
 
