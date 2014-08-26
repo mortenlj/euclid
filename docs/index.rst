@@ -249,6 +249,13 @@ The following methods do *not* alter the original vector or their arguments:
 
 ``angle(other)``
     Return the angle between two vectors.
+    Example:
+
+        >>> v1 = Vector2(1., 1.)
+        >>> v1.angle(Vector2(1., 0.))
+        -0.7853981633974483
+        >>> v1.angle(Vector2(-1., 0.))
+        2.356194490192345
 
 ``clockwise(other)``
     For 2D vectors, return true if other vector is clockwise to this.
