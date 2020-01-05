@@ -12,7 +12,7 @@ setup(name='euclid-ng',
       description='2D and 3D vector, matrix, quaternion and geometry module',
       author='Morten Lied Johansen',
       author_email='mortenjo@ifi.uio.no',
-      url='https://bitbucket.org/mortenlj/euclid/',
+      url='https://github.com/mortenlj/euclid/',
       py_modules=['euclid'],
       )
 

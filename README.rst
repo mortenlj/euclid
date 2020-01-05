@@ -1,7 +1,7 @@
 euclid
 2D and 3D maths module for Python
 
-:Homepage: https://bitbucket.org/mortenlj/euclid
+:Homepage: https://github.com/mortenlj/euclid
 :Documentation: http://euclid.readthedocs.org/
 :Contact:  Morten Lied Johansen
            mortenjo@ifi.uio.no
